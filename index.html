@@ -1,84 +1,58 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ивлиев Александр| Frontend-разработчик</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.cdnfonts.com/css/itc-benguiat-std" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <title>ToDo List</title>
 </head>
 <body>
-    <header>
-        <h1> Ивлиев Александр</h1>
-        <nav class = "nav_bar">
-            <a href="#">About</a>    
-            <a href="#">Education</a>    
-            <a href="#">Experience</a>    
-            <a href="#">Contact</a>    
-        </nav>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <h2>Меня зовут Александр</h2>
-            <p class="subtitle"> Начинающий frontend-разработчик</p>
-            <p class="description">
-                Прошел путь от менеджера по продажам до разработчика. 
-    Самостоятельно изучил JavaScript, HTML, CSS и Git. 
-  Сейчас углубляюсь в React.
-            </p>
-
-            <div class="skills">
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Адаптивная верстка</span>
-            </div>
-
-            <div class="hero-button">
-                <a href="#" class="btn primary">View CV</a>
-                <a href="#" class="btn secondary">Contact Me</a>
-            </div>
-        </section>
-
-        <section class="about" id="about">
-            <h2>Обо мне</h2>
-            <p class="about-intro">
-                Мой путь в разработку начался с интереса к тому, как работают сайты. 
-                Первые шаги были неуверенными, но желание разобраться оказалось сильнее страха.
-            </p>
-            <div class="about-grid">
-            <div class="about-column">
-                <h3>Проекты</h3>
-                <ul class="project-list">
-                    <li>Сайт радиоэлектроники</li>
-                    <li>Система стоимости аренды для сервиса по прокату авто </li>
-                </ul>
-                <div class="links">
-                        <a href="https://github.com/Cheech1ko" class="github-link">GitHub</a>
-                        <a href="#" class="resume-link">Скачать резюме</a>
-                    </div>
-                </div>
-
-                <div class="about-column">
-                    <h3>Мой путь в фронтенд</h3>
-                    <p>Я прошел базовый курс по JavaScript на Stepik, познакомился с функциями, циклами, 
-                        объектами и массивами. Параллельно изучал Git и GitHub.</p>
-                </div>
+    <div class="todo" data-js-todo>
+        <h1 class="todo__title">ToDo List</h1>
+        <div class="todo__date" id="current-date"></div>
+        
+        <form class="todo__form">
+            <div class="tofo__field field">
+                <label for="new-task" class="field__label">Новая задача</label>
+                <input type="text" class="field__input" id="new-task" placeholder="Введите текст задачи...">
+                <label for="task-description" class="field_label">Описание (необязательно)</label>
+                <textarea id="task-description" class="field__input" rows="2" placeholder="Подробности задачи"></textarea>
             </div>
             
-            <div class="about-footer">
-                <h3>Цели и развитие</h3>
-                <p>
-                    Моя цель — стать востребованным frontend-разработчиком, работать в команде, 
-                    создавать полезные продукты и однажды путешествовать по миру с ноутбуком в рюкзаке. 
-                    Впереди — React, TypeScript, IOS разработка и реальные проекты.
-                </p>
+            <div class="field">
+                <label for="task-due-date" class="field__label">Срок выполнения</label>
+                <input type="date" class="field__input due-date-input" id="task-due-date">
             </div>
+            
+            <div class="field">
+                <label for="task-category" class="field__label">Категория</label>
+                <select id="task-category" class="field__input category-select">
+                    <option value="general" selected>Общее</option>
+                    <option value="work">Работа</option>
+                    <option value="personal">Личное</option>
+                </select>
             </div>
-        </section>
-    </main>
+            <button class="button" type="submit">Добавить задачу</button>
+        </div>
+    </form>
+
+    <form class="todo__form">
+        <div class="todo__field field">
+            <label class="field__label" for="search-task">Поиск задач</label>
+            <input type="search" class="field__input" id="search-task" autocomplete="off" placeholder="Введите текст для поиска">
+        </div>
+    </form>
+
+    <div class="todo__total-tasks">Задач: <span>0</span>
+    </div>
+    <button class="todo__delete-all-button" type="button">Удалить все</button>
+
+    <ul class="todo__list" data-js-todo-list>
+
+    </ul>
+
+    <div class="todo__empty-message"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
